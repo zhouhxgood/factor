@@ -1,0 +1,10 @@
+ADF Statistic: -6.119568785173142
+p-value: 8.922898824689836e-08
+Used lags: 32
+Number of observations: 4756
+Critical Values:
+   1%: -3.4317257007880992
+   5%: -2.862147904124065
+   10%: -2.567093589281407
+IC Best: 89216.74744533448
+Conclusion: The series is stationary at the following significance levels: 1%, 5%, 10%.

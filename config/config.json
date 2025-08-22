@@ -1,0 +1,1208 @@
+{
+    "indicators": {
+        "open_price": {
+            "name": "开盘价",
+            "code": "open"
+        },
+        "high_price": {
+            "name": "最高价",
+            "code": "high"
+        },
+        "low_price": {
+            "name": "最低价",
+            "code": "low"
+        },
+        "close_price": {
+            "name": "收盘价",
+            "code": "close"
+        },
+        "volume": {
+            "name": "成交量",
+            "code": "volume"
+        },
+        "turnover": {
+            "name": "成交额",
+            "code": "amount"
+        },
+        "open_interest": {
+            "name": "持仓量",
+            "code": "openInterest"
+        }
+    },
+    "exchange": {
+        "SHFE": {
+            "name": "上海期货交易所",
+            "code": "SHFE"
+        },
+        "DCE": {
+            "name": "大连商品交易所",
+            "code": "DCE"
+        },
+        "CZCE": {
+            "name": "郑州商品交易所",
+            "code": "CZCE"
+        },
+        "GFE": {
+            "name": "广州期货交易所",
+            "code": "GFE"
+        },
+        "CFFEX": {
+            "name": "中国金融期货交易所",
+            "code": "CFE"
+        }
+    },
+    "futures": {
+        "non_ferrous": {
+            "CU_index": {
+                "name": "沪铜指数",
+                "exchange": "SHFE",
+                "symbol": "CU8888",
+                "size": "5",
+                "price_tick": "10",
+                "commission": "0.5e-4",
+                "code": "CU8888.SHFE"
+            },
+            "CU_main": {
+                "name": "沪铜主连",
+                "exchange": "SHFE",
+                "symbol": "CUZL",
+                "size": "5",
+                "price_tick": "10",
+                "commission": "0.5e-4",
+                "code": "CUZL.SHFE"
+            },
+            "AG_index": {
+                "name": "沪银指数",
+                "exchange": "SHFE",
+                "symbol": "AG8888",
+                "size": "15",
+                "price_tick": "1",
+                "commission": "0.5e-4",
+                "code": "AG8888.SHFE"
+            },
+            "AG_main": {
+                "name": "沪银主连",
+                "exchange": "SHFE",
+                "symbol": "AGZL",
+                "size": "15",
+                "price_tick": "1",
+                "commission": "0.5e-4",
+                "code": "AGZL.SHFE"
+            },
+            "AU_index": {
+                "name": "沪金指数",
+                "exchange": "SHFE",
+                "symbol": "AU8888",
+                "size": "1000",
+                "price_tick": "0.02",
+                "commission": "10",
+                "code": "AU8888.SHFE"
+            },
+            "AU_main": {
+                "name": "沪金主连",
+                "exchange": "SHFE",
+                "symbol": "AUZL",
+                "size": "1000",
+                "price_tick": "0.02",
+                "commission": "10",
+                "code": "AUZL.SHFE"
+            },
+            "AL_index": {
+                "name": "沪铝指数",
+                "exchange": "SHFE",
+                "symbol": "AL8888",
+                "size": "5",
+                "price_tick": "5",
+                "commission": "3",
+                "code": "AL8888.SHFE"
+            },
+            "AL_main": {
+                "name": "沪铝主连",
+                "exchange": "SHFE",
+                "symbol": "ALZL",
+                "size": "5",
+                "price_tick": "5",
+                "commission": "3",
+                "code": "ALZL.SHFE"
+            },
+            "ZN_index": {
+                "name": "沪银指数",
+                "exchange": "SHFE",
+                "symbol": "ZN8888",
+                "size": "5",
+                "price_tick": "5",
+                "commission": "3",
+                "code": "ZN8888.SHFE"
+            },
+            "ZN_main": {
+                "name": "沪锌主连",
+                "exchange": "SHFE",
+                "symbol": "ZNZL",
+                "size": "5",
+                "price_tick": "5",
+                "commission": "3",
+                "code": "ZNZL.SHFE"
+            },
+            "SN_index": {
+                "name": "沪锡指数",
+                "exchange": "SHFE",
+                "symbol": "SN8888",
+                "size": "1",
+                "price_tick": "10",
+                "commission": "3",
+                "code": "SN8888.SHFE"
+            },
+            "SN_main": {
+                "name": "沪锡主连",
+                "exchange": "SHFE",
+                "symbol": "SNZL",
+                "size": "1",
+                "price_tick": "10",
+                "commission": "3",
+                "code": "SNZL.SHFE"
+            },
+            "PB_index": {
+                "name": "沪铅指数",
+                "exchange": "SHFE",
+                "symbol": "PB8888",
+                "size": "5",
+                "price_tick": "5",
+                "commission": "0.4e-4",
+                "code": "PB8888.SHFE"
+            },
+            "PB_main": {
+                "name": "沪铅主连",
+                "exchange": "SHFE",
+                "symbol": "PBZL",
+                "size": "5",
+                "price_tick": "5",
+                "commission": "0.4e-4",
+                "code": "PBZL.SHFE"
+            },
+            "NI_index": {
+                "name": "沪镍指数",
+                "exchange": "SHFE",
+                "symbol": "NI8888",
+                "size": "1",
+                "price_tick": "10",
+                "commission": "3",
+                "code": "NI8888.SHFE"
+            },
+            "NI_main": {
+                "name": "沪镍主连",
+                "exchange": "SHFE",
+                "symbol": "NIZL",
+                "size": "1",
+                "price_tick": "10",
+                "commission": "3",
+                "code": "NIZL.SHFE"
+            },
+            "AO_index": {
+                "name": "氧化铝指数",
+                "exchange": "SHFE",
+                "symbol": "AO8888",
+                "size": "20",
+                "price_tick": "1",
+                "commission": "3e-4",
+                "code": "AO8888.SHFE"
+            },
+            "AO_main": {
+                "name": "氧化铝主连",
+                "exchange": "SHFE",
+                "symbol": "AOZL",
+                "size": "20",
+                "price_tick": "1",
+                "commission": "3e-4",
+                "code": "AOZL.SHFE"
+            },
+            "LC_index": {
+                "name": "碳酸锂指数",
+                "exchange": "GFE",
+                "symbol": "LC8888",
+                "size": "1",
+                "price_tick": "20",
+                "commission": "0.8e-4",
+                "code": "LC8888.GFE"
+            },
+            "LC_main": {
+                "name": "碳酸锂主连",
+                "exchange": "GFE",
+                "symbol": "LCZL",
+                "size": "1",
+                "price_tick": "20",
+                "commission": "0.8e-4",
+                "code": "LCZL.GFE"
+            },
+            "SI_index": {
+                "name": "工业硅指数",
+                "exchange": "GFE",
+                "symbol": "SI8888",
+                "size": "5",
+                "price_tick": "5",
+                "commission": "1e-4",
+                "code": "SI8888.GFE"
+            },
+            "SI_main": {
+                "name": "工业硅主连",
+                "exchange": "GFE",
+                "symbol": "SIZL",
+                "size": "5",
+                "price_tick": "5",
+                "commission": "1e-4",
+                "code": "SIZL.GFE"
+            },
+            "PS_index": {
+                "name": "多晶硅指数",
+                "exchange": "GFE",
+                "symbol": "PS8888",
+                "size": "3",
+                "price_tick": "5",
+                "commission": "1e-4",
+                "code": "PS8888.GFE"
+            },
+            "PS_main": {
+                "name": "多晶硅主连",
+                "exchange": "GFE",
+                "symbol": "PSZL",
+                "size": "3",
+                "price_tick": "5",
+                "commission": "1e-4",
+                "code": "PSZL.GFE"
+            }
+        },
+        "ferrous": {
+            "RB_index": {
+                "name": "螺纹指数",
+                "exchange": "SHFE",
+                "symbol": "RB8888",
+                "size": "10",
+                "price_tick": "1",
+                "commission": "1e-4",
+                "code": "RB8888.SHFE"
+            },
+            "RB_main": {
+                "name": "螺纹主连",
+                "exchange": "SHFE",
+                "symbol": "RBZL",
+                "size": "10",
+                "price_tick": "1",
+                "commission": "1e-4",
+                "code": "RBZL.SHFE"
+            },
+            "HC_index": {
+                "name": "热卷指数",
+                "exchange": "SHFE",
+                "symbol": "HC8888",
+                "size": "10",
+                "price_tick": "1",
+                "commission": "1e-4",
+                "code": "HC8888.SHFE"
+            },
+            "HC_main": {
+                "name": "热卷主连",
+                "exchange": "SHFE",
+                "symbol": "HCZL",
+                "size": "10",
+                "price_tick": "1",
+                "commission": "1e-4",
+                "code": "HCZL.SHFE"
+            },
+            "I_index": {
+                "name": "铁矿指数",
+                "exchange": "DCE",
+                "symbol": "I8888",
+                "size": "100",
+                "price_tick": "0.5",
+                "commission": "1e-4",
+                "code": "I8888.DCE"
+            },
+            "I_main": {
+                "name": "铁矿石主连",
+                "exchange": "DCE",
+                "symbol": "IZL",
+                "size": "100",
+                "price_tick": "0.5",
+                "commission": "1e-4",
+                "code": "IZL.DCE"
+            },
+            "SM_index": {
+                "name": "硅锰指数",
+                "exchange": "CZCE",
+                "symbol": "SM8888",
+                "size": "5",
+                "price_tick": "2",
+                "commission": "3",
+                "code": "SM8888.CZCE"
+            },
+            "SM_main": {
+                "name": "硅锰主连",
+                "exchange": "CZCE",
+                "symbol": "SMZL",
+                "size": "5",
+                "price_tick": "2",
+                "commission": "3",
+                "code": "SMZL.CZCE"
+            },
+            "SF_index": {
+                "name": "硅铁指数",
+                "exchange": "CZCE",
+                "symbol": "SF8888",
+                "size": "5",
+                "price_tick": "2",
+                "commission": "3",
+                "code": "SF8888.CZCE"
+            },
+            "SF_main": {
+                "name": "硅铁主连",
+                "exchange": "CZCE",
+                "symbol": "SFZL",
+                "size": "5",
+                "price_tick": "2",
+                "commission": "3",
+                "code": "SFZL.CZCE"
+            },
+            "JM_index": {
+                "name": "焦煤指数",
+                "exchange": "DCE",
+                "symbol": "JM8888",
+                "size": "60",
+                "price_tick": "0.5",
+                "commission": "1e-4",
+                "code": "JM8888.DCE"
+            },
+            "JM_main": {
+                "name": "焦煤主连",
+                "exchange": "DCE",
+                "symbol": "JMZL",
+                "size": "60",
+                "price_tick": "0.5",
+                "commission": "1e-4",
+                "code": "JMZL.DCE"
+            },
+            "J_index": {
+                "name": "焦炭指数",
+                "exchange": "DCE",
+                "symbol": "J8888",
+                "size": "100",
+                "price_tick": "0.5",
+                "commission": "1e-4",
+                "code": "J8888.DCE"
+            },
+            "J_main": {
+                "name": "焦炭主连",
+                "exchange": "DCE",
+                "symbol": "JZL",
+                "size": "100",
+                "price_tick": "0.5",
+                "commission": "1e-4",
+                "code": "JZL.DCE"
+            },
+            "SS_index": {
+                "name": "不锈钢指数",
+                "exchange": "SHFE",
+                "symbol": "SS8888",
+                "size": "5",
+                "price_tick": "5",
+                "commission": "2",
+                "code": "SS8888.SHFE"
+            },
+            "SS_main": {
+                "name": "不锈钢主连",
+                "exchange": "SHFE",
+                "symbol": "SSZL",
+                "size": "5",
+                "price_tick": "5",
+                "commission": "2",
+                "code": "SSZL.SHFE"
+            },
+            "FG_index": {
+                "name": "玻璃指数",
+                "exchange": "CZCE",
+                "symbol": "FG8888",
+                "size": "20",
+                "price_tick": "1",
+                "commission": "6",
+                "code": "FG8888.CZCE"
+            },
+            "FG_main": {
+                "name": "玻璃主连",
+                "exchange": "CZCE",
+                "symbol": "FGZL",
+                "size": "20",
+                "price_tick": "1",
+                "commission": "6",
+                "code": "FGZL.CZCE"
+            }
+        },
+        "oilseed": {
+            "M_index": {
+                "name": "豆粕指数",
+                "exchange": "DCE",
+                "symbol": "M8888",
+                "size": "10",
+                "price_tick": "1",
+                "code": "M8888.DCE"
+            },
+            "M_main": {
+                "name": "豆粕主连",
+                "exchange": "DCE",
+                "symbol": "MZL",
+                "size": "10",
+                "price_tick": "1",
+                "code": "MZL.DCE"
+            },
+            "RM_mindex": {
+                "name": "菜粕指数",
+                "exchange": "CZCE",
+                "symbol": "RM8888",
+                "size": "10",
+                "price_tick": "1",
+                "code": "RM8888.CZCE"
+            },
+            "RM_main": {
+                "name": "菜粕主连",
+                "exchange": "CZCE",
+                "symbol": "RMZL",
+                "size": "10",
+                "price_tick": "1",
+                "code": "RMZL.CZCE"
+            },
+            "P_index": {
+                "name": "棕榈油指数",
+                "exchange": "DCE",
+                "symbol": "P8888",
+                "size": "10",
+                "price_tick": "2",
+                "code": "P8888.DCE"
+            },
+            "P_main": {
+                "name": "棕榈油主连",
+                "exchange": "DCE",
+                "symbol": "PZL",
+                "size": "10",
+                "price_tick": "2",
+                "code": "PZL.DCE"
+            },
+            "OI_index": {
+                "name": "菜油指数",
+                "exchange": "CZCE",
+                "symbol": "OI8888",
+                "size": "10",
+                "price_tick": "1",
+                "code": "OI8888.CZCE"
+            },
+            "OI_main": {
+                "name": "菜油主连",
+                "exchange": "CZCE",
+                "symbol": "OIZL",
+                "size": "10",
+                "price_tick": "1",
+                "code": "OIZL.CZCE"
+            },
+            "Y_index": {
+                "name": "豆油指数",
+                "exchange": "DCE",
+                "symbol": "Y8888",
+                "size": "10",
+                "price_tick": "2",
+                "code": "Y8888.DCE"
+            },
+            "Y_main": {
+                "name": "豆油主连",
+                "exchange": "DCE",
+                "symbol": "YZL",
+                "size": "10",
+                "price_tick": "2",
+                "code": "YZL.DCE"
+            },
+            "A_index": {
+                "name": "豆一指数",
+                "exchange": "DCE",
+                "symbol": "A8888",
+                "size": "10",
+                "price_tick": "1",
+                "code": "A8888.DCE"
+            },
+            "A_main": {
+                "name": "豆一主连",
+                "exchange": "DCE",
+                "symbol": "AZL",
+                "size": "10",
+                "price_tick": "1",
+                "code": "AZL.DCE"
+            },
+            "B_index": {
+                "name": "豆二指数",
+                "exchange": "DCE",
+                "symbol": "B8888",
+                "size": "10",
+                "price_tick": "1",
+                "code": "B8888.DCE"
+            },
+            "B_main": {
+                "name": "豆二主连",
+                "exchange": "DCE",
+                "symbol": "BZL",
+                "size": "10",
+                "price_tick": "1",
+                "code": "BZL.DCE"
+            },
+            "PK_index": {
+                "name": "花生指数",
+                "exchange": "CZCE",
+                "symbol": "PK8888",
+                "size": "5",
+                "price_tick": "2",
+                "code": "PK8888.CZCE"
+            },
+            "PK_main": {
+                "name": "花生主连",
+                "exchange": "CZCE",
+                "symbol": "PKZL",
+                "size": "5",
+                "price_tick": "2",
+                "code": "PKZL.CZCE"
+            }
+        },
+        "chemical": {
+            "SH_index": {
+                "name": "烧碱指数",
+                "exchange": "CZCE",
+                "symbol": "SH8888",
+                "size": "30",
+                "price_tick": "1",
+                "code": "SH8888.CZCE"
+            },
+            "SH_main": {
+                "name": "烧碱主连",
+                "exchange": "CZCE",
+                "symbol": "SHZL",
+                "size": "30",
+                "price_tick": "1",
+                "code": "SHZL.CZCE"
+            },
+            "TA_index": {
+                "name": "PTA指数",
+                "exchange": "CZCE",
+                "symbol": "TA8888",
+                "size": "5",
+                "price_tick": "2",
+                "code": "TA8888.CZCE"
+            },
+            "TA_main": {
+                "name": "PTA主连",
+                "exchange": "CZCE",
+                "symbol": "TAZL",
+                "size": "5",
+                "price_tick": "2",
+                "code": "TAZL.CZCE"
+            },
+            "SA_index": {
+                "name": "纯碱指数",
+                "exchange": "CZCE",
+                "symbol": "SA8888",
+                "size": "20",
+                "price_tick": "1",
+                "code": "SA8888.CZCE"
+            },
+            "SA_main": {
+                "name": "纯碱主连",
+                "exchange": "CZCE",
+                "symbol": "SAZL",
+                "size": "20",
+                "price_tick": "1",
+                "code": "SAZL.CZCE"
+            },
+            "MA_index": {
+                "name": "甲醇指数",
+                "exchange": "CZCE",
+                "symbol": "MA8888",
+                "size": "10",
+                "price_tick": "1",
+                "code": "MA8888.CZCE"
+            },
+            "MA_main": {
+                "name": "甲醇主连",
+                "exchange": "CZCE",
+                "symbol": "MAZL",
+                "size": "10",
+                "price_tick": "1",
+                "code": "MAZL.CZCE"
+            },
+            "RU_index": {
+                "name": "天然橡胶指数",
+                "exchange": "SHFE",
+                "symbol": "RU8888",
+                "size": "10",
+                "price_tick": "5",
+                "code": "RU8888.SHFE"
+            },
+            "RU_main": {
+                "name": "天然橡胶主连",
+                "exchange": "SHFE",
+                "symbol": "RUZL",
+                "size": "10",
+                "price_tick": "5",
+                "code": "RUZL.SHFE"
+            },
+            "PP_index": {
+                "name": "聚丙烯指数",
+                "exchange": "DCE",
+                "symbol": "PP8888",
+                "size": "5",
+                "price_tick": "1",
+                "code": "PP8888.DCE"
+            },
+            "PP_main": {
+                "name": "聚丙烯主连",
+                "exchange": "DCE",
+                "symbol": "PPZL",
+                "size": "5",
+                "price_tick": "1",
+                "code": "PPZL.DCE"
+            },
+            "L_index": {
+                "name": "塑料指数",
+                "exchange": "DCE",
+                "symbol": "L8888",
+                "size": "5",
+                "price_tick": "1",
+                "code": "L8888.DCE"
+            },
+            "L_main": {
+                "name": "塑料主连",
+                "exchange": "DCE",
+                "symbol": "LZL",
+                "size": "5",
+                "price_tick": "1",
+                "code": "LZL.DCE"
+            },
+            "SP_index": {
+                "name": "纸浆指数",
+                "exchange": "SHFE",
+                "symbol": "SP8888",
+                "size": "10",
+                "price_tick": "2",
+                "code": "SP8888.SHFE"
+            },
+            "SP_main": {
+                "name": "纸浆主连",
+                "exchange": "SHFE",
+                "symbol": "SPZL",
+                "size": "10",
+                "price_tick": "2",
+                "code": "SPZL.SHFE"
+            },
+            "BU_index": {
+                "name": "沥青指数",
+                "exchange": "SHFE",
+                "symbol": "BU8888",
+                "size": "10",
+                "price_tick": "1",
+                "code": "BU8888.SHFE"
+            },
+            "BU_main": {
+                "name": "沥青主连",
+                "exchange": "SHFE",
+                "symbol": "BUZL",
+                "size": "10",
+                "price_tick": "1",
+                "code": "BUZL.SHFE"
+            },
+            "UR_index": {
+                "name": "尿素指数",
+                "exchange": "CZCE",
+                "symbol": "UR8888",
+                "size": "20",
+                "price_tick": "1",
+                "code": "UR8888.CZCE"
+            },
+            "UR_main": {
+                "name": "尿素主连",
+                "exchange": "CZCE",
+                "symbol": "URZL",
+                "size": "20",
+                "price_tick": "1",
+                "code": "URZL.CZCE"
+            },
+            "PX_index": {
+                "name": "对二甲苯指数",
+                "exchange": "CZCE",
+                "symbol": "PX8888",
+                "size": "5",
+                "price_tick": "2",
+                "code": "PX8888.CZCE"
+            },
+            "PX_main": {
+                "name": "对二甲苯主连",
+                "exchange": "CZCE",
+                "symbol": "PXZL",
+                "size": "5",
+                "price_tick": "2",
+                "code": "PXZL.CZCE"
+            },
+            "EB_index": {
+                "name": "苯乙烯指数",
+                "exchange": "DCE",
+                "symbol": "EB8888",
+                "size": "5",
+                "price_tick": "1",
+                "code": "EB8888.DCE"
+            },
+            "EB_main": {
+                "name": "苯乙烯主连",
+                "exchange": "DCE",
+                "symbol": "EBZL",
+                "size": "5",
+                "price_tick": "1",
+                "code": "EBZL.DCE"
+            },
+            "EG_index": {
+                "name": "乙二醇指数",
+                "exchange": "DCE",
+                "symbol": "EG8888",
+                "size": "10",
+                "price_tick": "1",
+                "code": "EG8888.DCE"
+            },
+            "EG_main": {
+                "name": "乙二醇主连",
+                "exchange": "DCE",
+                "symbol": "EGZL",
+                "size": "10",
+                "price_tick": "1",
+                "code": "EGZL.DCE"
+            },
+            "BR_index": {
+                "name": "合成橡胶指数",
+                "exchange": "SHFE",
+                "symbol": "BR8888",
+                "size": "5",
+                "price_tick": "5",
+                "code": "BR8888.SHFE"
+            },
+            "BR_main": {
+                "name": "合成橡胶主连",
+                "exchange": "SHFE",
+                "symbol": "BRZL",
+                "size": "5",
+                "price_tick": "5",
+                "code": "BRZL.SHFE"
+            },
+            "NR_index": {
+                "name": "20号胶指数",
+                "exchange": "SHFE",
+                "symbol": "NR8888",
+                "size": "10",
+                "price_tick": "5",
+                "code": "NR8888.SHFE"
+            },
+            "NR_main": {
+                "name": "20号胶主连",
+                "exchange": "SHFE",
+                "symbol": "NRZL",
+                "size": "10",
+                "price_tick": "5",
+                "code": "NRZL.SHFE"
+            },
+            "PF_index": {
+                "name": "短纤指数",
+                "exchange": "CZCE",
+                "symbol": "PF8888",
+                "size": "5",
+                "price_tick": "2",
+                "code": "PF8888.CZCE"
+            },
+            "PF_main": {
+                "name": "短纤主连",
+                "exchange": "CZCE",
+                "symbol": "PFZL",
+                "size": "5",
+                "price_tick": "2",
+                "code": "PFZL.CZCE"
+            },
+            "PR_index": {
+                "name": "瓶片指数",
+                "exchange": "CZCE",
+                "symbol": "PR8888",
+                "size": "15",
+                "price_tick": "2",
+                "code": "PR8888.CZCE"
+            },
+            "PR_main": {
+                "name": "瓶片主连",
+                "exchange": "CZCE",
+                "symbol": "PRZL",
+                "size": "15",
+                "price_tick": "2",
+                "code": "PRZL.CZCE"
+            },
+            "V_index": {
+                "name": "LPG指数",
+                "exchange": "DCE",
+                "symbol": "V8888",
+                "size": "5",
+                "price_tick": "1",
+                "code": "V8888.DCE"
+            },
+            "V_main": {
+                "name": "LPG主连",
+                "exchange": "DCE",
+                "symbol": "VZL",
+                "size": "5",
+                "price_tick": "1",
+                "code": "VZL.DCE"
+            }
+        },
+        "energy": {
+            "FU_index": {
+                "name": "燃油指数",
+                "exchange": "SHFE",
+                "symbol": "FU8888",
+                "size": "10",
+                "price_tick": "1",
+                "code": "FU8888.SHFE"
+            },
+            "FU_main": {
+                "name": "燃油主连",
+                "exchange": "SHFE",
+                "symbol": "FUZL",
+                "size": "10",
+                "price_tick": "1",
+                "code": "FUZL.SHFE"
+            },
+            "SC_index": {
+                "name": "原油指数",
+                "exchange": "SHFE",
+                "symbol": "SC8888",
+                "size": "1000",
+                "price_tick": "0.1",
+                "code": "SC8888.SHFE"
+            },
+            "SC_main": {
+                "name": "原油主连",
+                "exchange": "SHFE",
+                "symbol": "SCZL",
+                "size": "1000",
+                "price_tick": "0.1",
+                "code": "SCZL.SHFE"
+            },
+            "LU_index": {
+                "name": "低硫燃油指数",
+                "exchange": "SHFE",
+                "symbol": "LU8888",
+                "size": "10",
+                "price_tick": "1",
+                "code": "LU8888.SHFE"
+            },
+            "LU_main": {
+                "name": "低硫燃油主连",
+                "exchange": "SHFE",
+                "symbol": "LUZL",
+                "size": "10",
+                "price_tick": "1",
+                "code": "LUZL.SHFE"
+            },
+            "PG_index": {
+                "name": "LPG指数",
+                "exchange": "DCE",
+                "symbol": "PG8888",
+                "size": "20",
+                "price_tick": "1",
+                "code": "PG8888.DCE"
+            },
+            "PG_main": {
+                "name": "LPG主连",
+                "exchange": "DCE",
+                "symbol": "PGZL",
+                "size": "20",
+                "price_tick": "1",
+                "code": "PGZL.DCE"
+            }
+        },
+        "agricultural": {
+            "CF_index": {
+                "name": "郑棉指数",
+                "exchange": "CZCE",
+                "symbol": "CF8888",
+                "size": "5",
+                "price_tick": "5",
+                "code": "CF8888.CZCE"
+            },
+            "CF_main": {
+                "name": "郑棉主连",
+                "exchange": "CZCE",
+                "symbol": "CFZL",
+                "size": "5",
+                "price_tick": "5",
+                "code": "CFZL.CZCE"
+            },
+            "SR_index": {
+                "name": "白糖指数",
+                "exchange": "CZCE",
+                "symbol": "SR8888",
+                "size": "10",
+                "price_tick": "1",
+                "code": "SR8888.CZCE"
+            },
+            "SR_main": {
+                "name": "白糖主连",
+                "exchange": "CZCE",
+                "symbol": "SRZL",
+                "size": "10",
+                "price_tick": "1",
+                "code": "SRZL.CZCE"
+            },
+            "AP_index": {
+                "name": "苹果指数",
+                "exchange": "CZCE",
+                "symbol": "AP8888",
+                "size": "10",
+                "price_tick": "1",
+                "code": "AP8888.CZCE"
+            },
+            "AP_main": {
+                "name": "苹果主连",
+                "exchange": "CZCE",
+                "symbol": "APZL",
+                "size": "10",
+                "price_tick": "1",
+                "code": "APZL.CZCE"
+            },
+            "JD_index": {
+                "name": "鸡蛋指数",
+                "exchange": "DCE",
+                "symbol": "JD8888",
+                "size": "5",
+                "price_tick": "1",
+                "code": "JD8888.DCE"
+            },
+            "JD_main": {
+                "name": "鸡蛋主连",
+                "exchange": "DCE",
+                "symbol": "JDZL",
+                "size": "5",
+                "price_tick": "1",
+                "code": "JDZL.DCE"
+            },
+            "CJ_index": {
+                "name": "红枣指数",
+                "exchange": "CZCE",
+                "symbol": "CJ8888",
+                "size": "5",
+                "price_tick": "5",
+                "code": "CJ8888.CZCE"
+            },
+            "CJ_main": {
+                "name": "红枣主连",
+                "exchange": "CZCE",
+                "symbol": "CJZL",
+                "size": "5",
+                "price_tick": "5",
+                "code": "CJZL.CZCE"
+            },
+            "CS_index": {
+                "name": "玉米淀粉指数",
+                "exchange": "DCE",
+                "symbol": "CS8888",
+                "size": "10",
+                "price_tick": "1",
+                "code": "CS8888.DCE"
+            },
+            "CS_main": {
+                "name": "玉米淀粉主连",
+                "exchange": "DCE",
+                "symbol": "CSZL",
+                "size": "10",
+                "price_tick": "1",
+                "code": "CSZL.DCE"
+            },
+            "LG_index": {
+                "name": "原木指数",
+                "exchange": "DCE",
+                "symbol": "LG8888",
+                "size": "90",
+                "price_tick": "0.5",
+                "code": "LG8888.DCE"
+            },
+            "LG_main": {
+                "name": "原木主连",
+                "exchange": "DCE",
+                "symbol": "LGZL",
+                "size": "90",
+                "price_tick": "0.5",
+                "code": "LGZL.DCE"
+            },
+            "LH_index": {
+                "name": "生猪指数",
+                "exchange": "DCE",
+                "symbol": "LH8888",
+                "size": "16",
+                "price_tick": "5",
+                "code": "LH8888.DCE"
+            },
+            "LH_main": {
+                "name": "生猪主连",
+                "exchange": "DCE",
+                "symbol": "LHZL",
+                "size": "16",
+                "price_tick": "5",
+                "code": "LHZL.DCE"
+            },
+            "C_index": {
+                "name": "玉米指数",
+                "exchange": "DCE",
+                "symbol": "C8888",
+                "size": "10",
+                "price_tick": "1",
+                "code": "C8888.DCE"
+            },
+            "C_main": {
+                "name": "玉米主连",
+                "exchange": "DCE",
+                "symbol": "CZL",
+                "size": "10",
+                "price_tick": "1",
+                "code": "CZL.DCE"
+            }
+        },
+        "financial": {
+            "TL_index": {
+                "name": "30年期国债期货指数",
+                "exchange": "CFE",
+                "symbol": "TL8888",
+                "price_tick": "0.01",
+                "code": "TL8888.CFE"
+            },
+            "TL_main": {
+                "name": "30年期国债期货主连",
+                "exchange": "CFE",
+                "symbol": "TLZL",
+                "price_tick": "0.01",
+                "code": "TLZL.CFE"
+            },
+            "T_index": {
+                "name": "10年期国债期货指数",
+                "exchange": "CFE",
+                "symbol": "T8888",
+                "price_tick": "0.005",
+                "code": "T8888.CFE"
+            },
+            "T_main": {
+                "name": "10年期国债期货主连",
+                "exchange": "CFE",
+                "symbol": "TZL",
+                "price_tick": "0.005",
+                "code": "TZL.CFE"
+            },
+            "TF_index": {
+                "name": "5年期国债期货指数",
+                "exchange": "CFE",
+                "symbol": "TF8888",
+                "price_tick": "0.005",
+                "code": "TF8888.CFE"
+            },
+            "TF_main": {
+                "name": "5年期国债期货主连",
+                "exchange": "CFE",
+                "symbol": "TFZL",
+                "price_tick": "0.005",
+                "code": "TFZL.CFE"
+            },
+            "TS_index": {
+                "name": "2年期国债期货指数",
+                "exchange": "CFE",
+                "symbol": "TS8888",
+                "price_tick": "0.002",
+                "code": "TS8888.CFE"
+            },
+            "TS_main": {
+                "name": "2年期国债期货主连",
+                "exchange": "CFE",
+                "symbol": "TSZL",
+                "price_tick": "0.002",
+                "code": "TSZL.CFE"
+            },
+            "IM_index": {
+                "name": "中证1000股指期货指数",
+                "exchange": "CFE",
+                "symbol": "IM8888",
+                "size": "200",
+                "price_tick": "0.2",
+                "code": "IM8888.CFE"
+            },
+            "IM_main": {
+                "name": "中证1000股指期货主连",
+                "exchange": "CFE",
+                "symbol": "IMZL",
+                "size": "200",
+                "price_tick": "0.2",
+                "code": "IMZL.CFE"
+            },
+            "IF_index": {
+                "name": "沪深300股指期货指数",
+                "exchange": "CFE",
+                "symbol": "IF8888",
+                "size": "300",
+                "price_tick": "0.2",
+                "code": "IF8888.CFE"
+            },
+            "IF_main": {
+                "name": "沪深300股指期货主连",
+                "exchange": "CFE",
+                "symbol": "IFZL",
+                "size": "300",
+                "price_tick": "0.2",
+                "code": "IFZL.CFE"
+            },
+            "IC_index": {
+                "name": "中证500股指期货指数",
+                "exchange": "CFE",
+                "symbol": "IC8888",
+                "size": "200",
+                "price_tick": "0.2",
+                "code": "IC8888.CFE"
+            },
+            "IC_main": {
+                "name": "中证500股指期货主连",
+                "exchange": "CFE",
+                "symbol": "ICZL",
+                "size": "200",
+                "price_tick": "0.2",
+                "code": "ICZL.CFE"
+            },
+            "IH_index": {
+                "name": "上证50股指期货指数",
+                "exchange": "CFE",
+                "symbol": "IH8888",
+                "size": "300",
+                "price_tick": "0.2",
+                "code": "IH8888.CFE"
+            },
+            "IH_main": {
+                "name": "上证50股指期货主连",
+                "exchange": "CFE",
+                "symbol": "IHZL",
+                "size": "300",
+                "price_tick": "0.2",
+                "code": "IHZL.CFE"
+            },
+            "EC_index": {
+                "name": "集运指数（欧线）期货指数",
+                "exchange": "SHFE",
+                "symbol": "EC8888",
+                "size": "50",
+                "price_tick": "0.1",
+                "code": "EC8888.SHFE"
+            },
+            "EC_main": {
+                "name": "集运指数（欧线）期货主连",
+                "exchange": "SHFE",
+                "symbol": "ECZL",
+                "size": "50",
+                "price_tick": "0.1",
+                "code": "ECZL.SHFE"
+            }
+        }
+    }
+}
