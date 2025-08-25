@@ -1,7 +1,7 @@
 from statsmodels.tsa.stattools import adfuller
 
 
-def adf_test(series, save_path="/stats_test/adf_result.txt"):
+def adf_test(series, save_path=None):
     """
     自回归过程如果存在单位根则说明是一个随机游走，即差分是一个白噪声
     """
@@ -24,5 +24,7 @@ def adf_test(series, save_path="/stats_test/adf_result.txt"):
 
     output_lines.append(conclusion)
     # 保存到文件
-    with open(save_path, "w", encoding="utf-8") as f:
-        f.write("\n".join(output_lines))
+    if save_path:
+        with open(save_path, "w", encoding="utf-8") as f:
+            f.write("\n".join(output_lines))
+    return output_lines
