@@ -8,6 +8,46 @@ from sklearn.model_selection import train_test_split
 from sklearn.metrics import mean_squared_error, r2_score
 from utils import *
 from sklearn.metrics import accuracy_score
+from factor import factor_metrics
+
+
+def preprocess_features(df, winsor_quantile=0.01):
+    df = df.copy()
+
+    # 价格类特征
+    price_cols = ['close', 'open', 'high', 'low', 'basis']
+    for col in price_cols:
+        # 计算收益率
+        df[col + '_ret'] = df[col].pct_change().fillna(0)
+        # 去极值
+        lower = df[col + '_ret'].quantile(winsor_quantile)
+        upper = df[col + '_ret'].quantile(1 - winsor_quantile)
+        df[col + '_ret'] = df[col + '_ret'].clip(lower, upper)
+        # 标准化
+        df[col + '_ret'] = (df[col + '_ret'] - df[col + '_ret'].mean()) / df[col + '_ret'].std()
+
+    # 数量类特征
+    qty_cols = ['volume', 'open_interest', 'turnover']
+    for col in qty_cols:
+        # 对数化
+        df[col + '_log'] = np.log1p(df[col])
+        # 去极值
+        lower = df[col + '_log'].quantile(winsor_quantile)
+        upper = df[col + '_log'].quantile(1 - winsor_quantile)
+        df[col + '_log'] = df[col + '_log'].clip(lower, upper)
+        # 标准化
+        df[col + '_log'] = (df[col + '_log'] - df[col + '_log'].mean()) / df[col + '_log'].std()
+
+    # warrant 类特征
+    if 'warrant' in df.columns:
+        lower = df['warrant'].quantile(winsor_quantile)
+        upper = df['warrant'].quantile(1 - winsor_quantile)
+        df['warrant'] = df['warrant'].clip(lower, upper)
+        df['warrant'] = (df['warrant'] - df['warrant'].mean()) / df['warrant'].std()
+
+    # 最终保留新特征列
+    feature_cols = [c for c in df.columns if any(x in c for x in ['_ret', '_log', 'warrant'])]
+    return df[feature_cols]
 
 
 config_path = r"D:\PythonProject\drl\config\config.json"
@@ -32,23 +72,31 @@ exc = config["futures"][sector][fu + "_main"]["exchange"]
 exc = getattr(Exchange, exc)
 dfzl = get_data(symbol=f"{fu}ZL", exchange=exc, start=start, end=val_end, interval=freq)
 
-plt.plot(df)
-plt.show()
-
 df = pd.read_excel('./data/cu.xlsx')
 df.columns = ['date', 'warrant', 'close', 'basis']
 df.set_index('date', inplace=True)
 df = pd.concat([df, dfzl], axis=1)
+df = df.loc[:, ~df.columns.duplicated()]
 df = df.dropna()
+df['return'] = df['close'].pct_change()
+df['target'] = df['return'].shift(-1)
+res = factor_metrics(df, df['target'], rolling_window=120)
+
+processed_df = preprocess_features(df)
+fig, ax1 = plt.subplots(figsize=(15, 7))
+ax2 = ax1.twinx()
+ax1.plot(df['warrant'])
+ax2.plot(df['close'])
+plt.show()
+
 # # col = 'basis'
 # col = 'close'
 # # col = 'warrant'
 # adf_test(df[col], save_path=f'./stats_test/{col}.txt')
-df = df.loc[:, ~df.T.duplicated()]
-df = df.copy()
+
 
 # 1. 计算收益率
-df['return'] = df['close'].pct_change()  # 或 np.log(df['Close'] / df['Close'].shift(1))
+
 df['target'] = (df['return'].shift(-1) > 0).astype(int)  # 1 = 涨, 0 = 跌
 df.dropna(inplace=True)  # 去掉第一个NaN
 
