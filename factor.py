@@ -1,5 +1,6 @@
 import numpy as np
 import pandas as pd
+from plotly.express.trendline_functions import rolling
 from scipy import stats
 from constant import Variable
 from stats_test import adf_test
@@ -93,9 +94,56 @@ def factor_metrics(df, future_returns):
             'ICIR': icir,
             'Rank_IC': rank_ic,
         }
-
     return pd.DataFrame(results).T
 
+
+def rolling_factor_metrics(df, future_returns, window=60):
+    if isinstance(df, pd.Series):
+        df = df.to_frame(name=df.name)
+    if not isinstance(df.index, pd.DatetimeIndex):
+        raise ValueError("DataFrame索引应为日期时间格式")
+    # 检查长度是否匹配
+    if len(df) != len(future_returns):
+        raise ValueError("df和future_returns的长度必须相同")
+    results = {}
+
+    for col in df.columns:
+        factor_data = df[col]
+        data_df = pd.DataFrame({
+            'factor': factor_data,
+            'returns': future_returns
+        }).dropna()
+
+        if len(data_df) < window:  # 样本不足，无法计算
+            results[col] = pd.DataFrame(index=df.index, columns=["rolling_ic", "rolling_icir", "rolling_rankic"])
+            continue
+
+        # 皮尔逊 IC
+        rolling_ic = data_df["factor"].rolling(window).corr(data_df["returns"])
+
+        # RankIC
+        rolling_rankic = data_df["factor"].rolling(window).apply(
+            lambda x: stats.spearmanr(x, data_df.loc[x.index, "returns"])[0], raw=False
+        )
+
+        # ICIR
+        rolling_icir = rolling_ic.rolling(window).apply(
+            lambda x: np.mean(x) / np.std(x, ddof=1) if np.std(x, ddof=1) != 0 else np.nan,
+            raw=True
+        )
+
+        # 保存结果（对齐索引）
+        result_df = pd.DataFrame({
+            f"{col}_rolling_ic_size{window}": rolling_ic.reindex(df.index),
+            f"{col}_rolling_icir_size{window}": rolling_icir.reindex(df.index),
+            f"{col}_rolling_rankic_size{window}": rolling_rankic.reindex(df.index)
+        })
+
+        results[col] = result_df
+
+    # 拼接所有因子的结果
+    final_result = pd.concat(results.values(), axis=1)
+    return final_result
 
 class Factor:
     def __init__(self, df, data, to_return=True, fix=False):
@@ -678,7 +726,6 @@ class Factor:
 # 示例用法
 if __name__ == "__main__":
     import matplotlib.pyplot as plt
-    import json
     from utils import *
 
     config_path = r"D:\PythonProject\drl\config\config.json"
@@ -692,7 +739,8 @@ if __name__ == "__main__":
     val_end = "2025-8-25"
     pred_end = "2025-07-01"
     fu_list = ['CU', 'AL', 'ZN', 'NI', 'PB', 'SN']
-    fu = 'CU'
+    # fu = 'CU'
+    fu = 'AL'
     freq = 'd'
     sector = "non_ferrous"
     price_tick = float(config["futures"][sector][fu + "_main"]["price_tick"])
@@ -701,20 +749,28 @@ if __name__ == "__main__":
     exc = config["futures"][sector][fu + "_main"]["exchange"]
     exc = getattr(Exchange, exc)
     dfzl = get_data(symbol=f"{fu}ZL", exchange=exc, start=start, end=val_end, interval=freq)
-    df = pd.read_excel('./data/cu.xlsx')
-    df.columns = ['date', 'inventory', 'profit', 'basis', 'warrant']
-    df = df[['date', 'profit', 'basis', 'warrant']]  # 先不用库存
+
+    # df = pd.read_excel('./data/cu.xlsx')
+    df = pd.read_csv('./data/al.csv', encoding='gbk')
+
+    # df.columns = ['date', 'inventory', 'profit', 'basis', 'warrant']
+    # df = df[['date', 'profit', 'basis', 'warrant']]  # 先不用库存
+
+    df.columns = ['date', 'basis', '1', 'profit']
+    df = df[['date', 'profit']]
+    df['date'] = pd.to_datetime(df['date'], format="%d/%m/%Y")
     df.set_index('date', inplace=True)
     df = pd.concat([df, dfzl], axis=1)
     df = df[df.index >= '2016-01-01']
 
     fa = Factor(df=df, data='close', to_return=True)
     fa.fill_na(data='profit', method='ffill', fix=True)
-    f0 = fa.B_Diff(data='open_interest', periods=2, add=True)
-    f1 = fa.B_Diff(data=['basis', 'profit', 'volume', 'turnover', 'warrant', 'open_interest'], periods=1, add=True)
-    #  基差可能是0
-    f2 = fa.B_Roc(data=['profit', 'volume', 'turnover', 'warrant', 'open_interest'], periods=1, add=True)
-    f3 = fa.B_Vol(data=['basis', 'profit', 'volume', 'turnover', 'warrant', 'open_interest'], window=20, add=True)
+    # f0 = fa.B_Diff(data='open_interest', periods=2, add=True)
+    f0 = fa.B_Diff(data='profit', periods=1, add=True)
+    # f1 = fa.B_Diff(data=['basis', 'profit', 'volume', 'turnover', 'warrant', 'open_interest'], periods=1, add=True)
+    # #  基差可能是0
+    # f2 = fa.B_Roc(data=['profit', 'volume', 'turnover', 'warrant', 'open_interest'], periods=1, add=True)
+    # f3 = fa.B_Vol(data=['basis', 'profit', 'volume', 'turnover', 'warrant', 'open_interest'], window=20, add=True)
 
     cols = fa.df.columns[fa.df.columns.str.upper() != "TARGET"]
     fa.rolling_standard(fa.df[cols], add=True)
@@ -726,10 +782,14 @@ if __name__ == "__main__":
 
     ta = fa.df['TARGET']
     factor_m = factor_metrics(fa.df.drop(columns=["TARGET"]), ta)
+    factor_r_m= rolling_factor_metrics(fa.df['PROFIT_DIFF_1_z60'], ta, window=252)
 
+    factor_r_m.dropna(how='any').to_csv('./data/factor_metrics.csv')
     factor = fa.df['PROFIT_DIFF_1_z60']
-    plt.plot(factor)
-    plt.plot(fa.df['TARGET'])
+    fig, ax1 = plt.subplots(figsize=(16, 7))
+    ax2 = ax1.twinx()
+    ax1.plot(factor)
+    ax2.plot(fa.df['TARGET'])
     plt.show()
 
     # 创建示例数据
